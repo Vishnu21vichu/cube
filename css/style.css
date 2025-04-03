@@ -5,7 +5,9 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: "NewRailAlphabet-White";
+    min-height: 100vh;
+    background: linear-gradient(180deg, rgba(243, 243, 243, 0.75) 0%, rgba(184, 184, 184, 0.8) 59.38%, rgba(243, 243, 243, 0.25) 100%);
 }
 
 .announcement-bar {
@@ -14,7 +16,7 @@ body {
     text-align: center;
     padding: 14px 0;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.3px;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -24,18 +26,58 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 25px 60px;
-    background-color: white;
+    padding: 20px 5%;
+    position: relative;
 }
 
 .logo {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .logo img {
     height: 30px;
-    width: 174px;
+    width: auto;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.nav-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .nav {
@@ -44,13 +86,19 @@ body {
     gap: 40px;
     margin-left: auto;
     margin-right: auto;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .nav-link {
     text-decoration: none;
     color: #333;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 700;
     position: relative;
 }
 
@@ -71,8 +119,14 @@ body {
     gap: 20px;
 }
 
+/* Search Container and Box */
+.search-container {
+    position: relative;
+}
+
 .search-icon {
     cursor: pointer;
+    margin-left: 20px;
 }
 
 .search-icon svg {
@@ -80,35 +134,405 @@ body {
     height: 30px;
 }
 
-.cta-button {
-    background: linear-gradient(93.63deg, 
-        #CAA648 -0.61%, 
-        #CAA648 10.09%, 
-        #D5B147 25.19%, 
-        #E4C267 46.69%, 
-        #E2C065 78.94%, 
-        #DBB95E 90.77%, 
-        #D0AE52 98.29%, 
-        #C09F41 104.74%, 
-        #BB9A3C 106.89%);
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: "Inter", sans-serif;
-    border-radius: 50px;
-    color: black;
+.search-bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    gap: 16px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-bar.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px 50px 15px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: #D9D9D9;
+    outline: none;
+    font-family: inherit;
+}
+
+.cta-button {
+    background: linear-gradient(93.63deg,
+            #CAA648 -0.61%,
+            #CAA648 10.09%,
+            #D5B147 25.19%,
+            #E4C267 46.69%,
+            #E2C065 78.94%,
+            #DBB95E 90.77%,
+            #D0AE52 98.29%,
+            #C09F41 104.74%,
+            #BB9A3C 106.89%);
+    border: none;
+    padding: 12px 24px;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 50px;
+    color: black;
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
     cursor: pointer;
     outline: none;
-    min-width: 160px;
     justify-content: center;
     text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Hero Banner Section */
+.hero-banner {
+    padding: 40px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Rating Badge */
+.rating-badge {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(90.05deg, rgba(255, 255, 255, 0.36) 0.04%, rgba(252, 252, 252, 0.12) 102.54%);
+    border-radius: 50px;
+    padding: 5px;
+    border: 0.3px solid #ffffff;
+    position: absolute;
+    top: -17px;
+    left: 20%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.rating {
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    padding: 5px;
+}
+
+.star-icon {
+    color: #F0B042;
+    margin-left: 6px;
+    font-size: 22px;
+}
+
+.rating-text {
+    font-size: 16.8px;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.award-text {
+    font-size: 16.8px;
+    margin-top: 3px;
+    font-weight: 600;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+/* Hero Content */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.hero-text h1 {
+    font-size: 55px;
+    color: #333;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Feature Stats */
+.feature-stats {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.stat {
+    margin-right: 70px;
+}
+
+.stat h2 {
+    font-size: 67px;
+    line-height: 1;
+    margin: 0;
+    background: linear-gradient(93.63deg,
+            #CAA648 -0.61%,
+            #CAA648 10.09%,
+            #D5B147 25.19%,
+            #E4C267 46.69%,
+            #E2C065 78.94%,
+            #DBB95E 90.77%,
+            #D0AE52 98.29%,
+            #C09F41 104.74%,
+            #BB9A3C 106.89%);
+
+    /* Apply gradient to text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* Standard syntax */
+}
+
+.stat .mg {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.stat p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #333;
+    margin: 5px 0 0;
+    line-height: 1.3;
+}
+
+/* Hero Image */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    bottom: 40px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Taste Banner */
+.taste-banner {
+    border: 1px solid #DEB557;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto 40px;
+    max-width: 1000px;
+}
+
+.taste-banner h3 {
+    font-size: 36px;
+    margin: 0;
+    color: #333;
+    font-weight: 500;
 }
 
 .arrow-icon {
     width: 18px;
     height: 18px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .header {
+        padding: 20px 4%;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        order: 3;
+    }
+
+    .logo {
+        align-items: center;
+    }
+
+    .header-right {
+        order: 2;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 80px;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 5;
+        margin: 0;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav-link {
+        padding: 15px 30px;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .shop-link {
+        justify-content: space-between;
+    }
+
+    .hero-text h1 {
+        font-size: 45px;
+    }
+
+    .stat h2 {
+        font-size: 55px;
+    }
+
+    .stat {
+        margin-right: 40px;
+    }
+    
+    /* Fix search bar position in tablet */
+    .search-bar.active {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 0 20px;
+        z-index: 4;
+    }
+    .rating-badge {
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        border-radius: 10px;
+        left: 50%;
+        top:-12%;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .header-right {
+        gap: 15px;
+    }
+
+    .cta-button {
+        padding: 10px 15px;
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+    }
+
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .feature-stats {
+        justify-content: center;
+    }
+
+    .hero-image {
+        justify-content: center;
+        bottom: 20px; /* Adjust bottom value for better appearance */
+    }
+
+    .taste-banner h3 {
+        font-size: 28px;
+    }
+
+    .rating-badge {
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        border-radius: 10px;
+        left: 50%;
+        top:-9%;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo img {
+        height: 25px;
+        width: auto; /* Keep aspect ratio */
+        max-width: 140px;
+    }
+
+    .header-right .cta-button {
+        display: none;
+    }
+
+    .rating-badge {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        border-radius: 10px;
+        left: 50%;
+        top:-9%;
+        padding: 8px; /* Add padding for better readability */
+    }
+    
+    .rating {
+        margin-bottom: 5px;
+    }
+
+    .hero-text h1 {
+        font-size: 38px; /* Slightly larger than previous for better readability */
+    }
+
+    .feature-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat {
+        margin-right: 0;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .announcement-bar {
+        font-size: 12px; /* Smaller text for mobile */
+        padding: 10px 15px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 375px) {
+    .hero-text h1 {
+        font-size: 32px;
+    }
+    
+    .stat h2 {
+        font-size: 50px;
+    }
+    
+    .taste-banner h3 {
+        font-size: 24px;
+    }
 }

@@ -1,28 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alcami - Header</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://db.onlinewebfonts.com/c/a9db66cbaf8b1781ee08aeaae793c61b?family=NewRailAlphabet-White"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="announcement-bar">
         GET 25% OFF YOUR FIRST MONTH. FREE SHIPPING ON U.S ORDERS.
     </div>
-    
+
     <header class="header">
         <div class="logo">
             <img src="assets/logo.png" alt="Alcami Logo">
         </div>
-        
+
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-container">
         <nav class="nav">
             <a href="#" class="nav-link">Home</a>
             <a href="#" class="nav-link shop-link">
                 Shop
                 <svg class="chevron-down" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </a>
             <a href="#" class="nav-link">Elements</a>
@@ -30,23 +40,84 @@
             <a href="#" class="nav-link">Blog</a>
             <a href="#" class="nav-link">Contact</a>
         </nav>
-        
+        <div class="search-bar">
+            <input type="text" placeholder="Search For Products...">
+        </div>
+    </div>
+
         <div class="header-right">
-            <div class="search-icon">
+            <div class="search-icon" id="search-toggle">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            
+
             <a href="#" class="cta-button">
                 Try Alcami
                 <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
                 </svg>
             </a>
         </div>
     </header>
+    <section class="hero-banner">
+        <div class="container">
+
+
+            <div class="hero-content">
+                <div class="rating-badge">
+                    <div class="rating">
+                        <span class="star-icon">★</span>
+                        <span class="rating-text">4.8 star rating</span>
+                    </div>
+                    <span class="award-text">awarded the top adaptogen blend in the world</span>
+                </div>
+                <div class="hero-text">
+                    <h1>Achieve your highest self.</h1>
+
+                    <div class="feature-stats">
+                        <div class="stat">
+                            <h2>10x</h2>
+                            <p>concentration</p>
+                        </div>
+
+                        <div class="stat">
+                            <h2>9</h2>
+                            <p>powerful<br>ingredients</p>
+                        </div>
+
+                        <div class="stat">
+                            <h2>1000 <span class="mg">mg</span></h2>
+                            <p>of Adaptogens<br>per dose</p>
+                        </div>
+                    </div>
+
+                    <a href="#" class="cta-button">
+                        Shop Now
+                        <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="hero-image">
+                    <img src="assets/banner.png" alt="Alcami product packages with natural ingredients">
+                </div>
+            </div>
+
+            <div class="taste-banner">
+                <h3>Incredible Taste And Effects You Can Feel</h3>
+            </div>
+        </div>
+    </section>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
