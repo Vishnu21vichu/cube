@@ -163,6 +163,26 @@ document.addEventListener('DOMContentLoaded', function () {
         card.innerHTML = starsHtml + textHtml + authorHtml;
         return card;
     }
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    slider.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    slider.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+    
+    function handleSwipe() {
+        const minSwipeDistance = 50;
+        if (touchStartX - touchEndX > minSwipeDistance) {
+            nextSlide();
+        } else if (touchEndX - touchStartX > minSwipeDistance) {
+            prevSlide();
+        }
+    }
 });
 
 // FAQs Accordion
