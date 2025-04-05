@@ -242,3 +242,69 @@ document.addEventListener('keydown', function (event) {
         }
     }
 });
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Function to animate counting up
+function countUp(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 1000;
+    const startTime = performance.now();
+    let animationFrameId;
+
+    function updateCount(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        const easedProgress = 1 - (1 - progress) * (1 - progress);
+        
+        const currentCount = Math.floor(easedProgress * target);
+        element.textContent = currentCount + '%';
+        
+        if (progress < 1) {
+            animationFrameId = requestAnimationFrame(updateCount);
+        } else {
+            element.textContent = target + '%';
+        }
+    }
+    
+    animationFrameId = requestAnimationFrame(updateCount);
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+            const percentageElements = entry.target.querySelectorAll('.stat-percentage');
+            percentageElements.forEach(element => {
+                countUp(element);
+            });
+            entry.target.classList.add('counted');
+        }
+    });
+}, { threshold: 0.2 });
+
+observer.observe(document.querySelector('.stats-container'));
+
+let hasAnimated = false;
+function checkScroll() {
+    if (hasAnimated) return;
+    
+    const statsContainer = document.querySelector('.stats-container');
+    if (isInViewport(statsContainer)) {
+        const percentageElements = document.querySelectorAll('.stat-percentage');
+        percentageElements.forEach(element => {
+            countUp(element);
+        });
+        hasAnimated = true;
+        window.removeEventListener('scroll', checkScroll);
+    }
+}
+
+window.addEventListener('scroll', checkScroll);
+window.addEventListener('load', checkScroll);
