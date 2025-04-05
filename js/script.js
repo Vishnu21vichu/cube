@@ -225,6 +225,211 @@ document.addEventListener('click', function (event) {
         navLinks.classList.remove('hidden');
     }
 });
+  // Carousel functionality
+  const mainImage = document.querySelector('.main-image img');
+  const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail img');
+  const dots = document.querySelectorAll('.carousel-dots .dot');
+  const prevBtn = document.querySelector('.arrow-btn.prev');
+  const nextBtn = document.querySelector('.arrow-btn.next');
+  
+  // Keep track of the current slide index
+  let currentSlide = 0;
+  const totalSlides = thumbnails.length;
+  
+  // Store all original image sources for reference
+  const imageSources = Array.from(thumbnails).map(img => img.src);
+  const mainImageSrc = mainImage.src;
+  
+  // Function to update the carousel state
+  function updateCarousel(newIndex) {
+      // Update current slide index
+      currentSlide = newIndex;
+      
+      // Handle wrapping around when reaching the ends
+      if (currentSlide < 0) currentSlide = totalSlides - 1;
+      if (currentSlide >= totalSlides) currentSlide = 0;
+      
+      // Get the current main image source before changing it
+      const currentMainSrc = mainImage.src;
+      
+      // Update main image with the selected thumbnail
+      mainImage.src = thumbnails[currentSlide].src;
+      mainImage.alt = thumbnails[currentSlide].alt;
+      
+      // Store the main image source in the clicked thumbnail
+      thumbnails[currentSlide].src = currentMainSrc;
+      thumbnails[currentSlide].alt = "Product thumbnail";
+      
+      // Update active dot indicator
+      dots.forEach((dot, index) => {
+          // Make the dot active if it corresponds to the current image
+          const isActive = (currentSlide % 8) === index;
+          dot.classList.toggle('active', isActive);
+      });
+  }
+  
+  // Add click event listener to thumbnails
+  thumbnails.forEach((thumbnail, index) => {
+      thumbnail.addEventListener('click', () => {
+          updateCarousel(index);
+      });
+  });
+  
+  // Add click event listener to dots
+  dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+          // Calculate the actual slide index based on dot index
+          // For the first row of thumbnails
+          if (index < 8) {
+              updateCarousel(index);
+          }
+      });
+  });
+  
+  // Add click event listeners to prev/next buttons
+  prevBtn.addEventListener('click', () => {
+      updateCarousel(currentSlide - 1);
+  });
+  
+  nextBtn.addEventListener('click', () => {
+      updateCarousel(currentSlide + 1);
+  });
+  
+  // Reset function to restore the default state
+  function resetCarousel() {
+      // Restore the main image to product1.png
+      mainImage.src = mainImageSrc;
+      
+      // Restore all thumbnails to their original sources
+      thumbnails.forEach((thumbnail, index) => {
+          thumbnail.src = imageSources[index];
+      });
+      
+      // Reset current slide index and active dot
+      currentSlide = 0;
+      dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === 0);
+      });
+  }
+  
+  // Initialize the carousel with the default state
+  document.addEventListener('DOMContentLoaded', () => {
+      // Ensure the first image stays as the main image
+      resetCarousel();
+  });
+      
+      // Flavor selection
+  const flavorOptions = document.querySelectorAll('input[name="flavor"]');
+  
+  // Get reference to the subscription option images that need to be updated
+  // These are the images that show in the "Every 30 Days" included box
+  const singleKitImage = document.querySelector('#single-kit-content .included-box:first-child img');
+  const doubleKitImage = document.querySelector('#double-kit-content .included-box:first-child img');
+  const doubleKitSecondImage = document.querySelector('#double-kit-content .included-box:first-child img:nth-child(2)');
+  const tryOnceImage = document.querySelector('#try-once-content .included-box:first-child img');
+  
+  // Store the flavor image paths
+  const flavorImages = {
+      'original': 'assets/flavour.png',
+      'matcha': 'assets/flavour2.png',
+      'cacao': 'assets/flavour3.png'
+  };
+  
+  // Add change event listener to each flavor option
+  flavorOptions.forEach(option => {
+      option.addEventListener('change', function() {
+          // Get the ID of the selected flavor (original, matcha, or cacao)
+          const selectedFlavorId = this.id;
+          
+          // Get the image path for the selected flavor
+          const selectedImagePath = flavorImages[selectedFlavorId];
+          
+          // Update the images in all subscription options with the selected flavor image
+          if (singleKitImage) {
+              singleKitImage.src = selectedImagePath;
+              singleKitImage.alt = selectedFlavorId + " flavor";
+          }
+          
+          if (doubleKitImage) {
+              doubleKitImage.src = selectedImagePath;
+              doubleKitImage.alt = selectedFlavorId + " flavor";
+          }
+          
+          if (doubleKitSecondImage) {
+              doubleKitSecondImage.src = selectedImagePath;
+              doubleKitSecondImage.alt = selectedFlavorId + " flavor";
+          }
+          
+          if (tryOnceImage) {
+              tryOnceImage.src = selectedImagePath;
+              tryOnceImage.alt = selectedFlavorId + " flavor";
+          }
+      });
+  });
+  
+  // Initialize with the default selected flavor (original)
+  window.addEventListener('DOMContentLoaded', () => {
+      const initialSelectedFlavor = document.querySelector('input[name="flavor"]:checked');
+      if (initialSelectedFlavor) {
+          // Trigger the change event to set initial images
+          initialSelectedFlavor.dispatchEvent(new Event('change'));
+      }
+  });
+      
+      // Subscription selection
+      const subscriptionOptions = document.querySelectorAll('.subscription-type');
+          
+      // Add click event listener to each option
+      subscriptionOptions.forEach(option => {
+          option.addEventListener('click', function() {
+              // Get the ID of the clicked option
+              const optionId = this.id;
+              
+              // Get the corresponding content ID
+              const contentId = optionId.replace('-option', '-content');
+              
+              // Remove active class from all options and contents
+              subscriptionOptions.forEach(opt => {
+                  opt.classList.remove('active');
+                  
+                  // Find the radio button within this option and uncheck it
+                  const radio = opt.querySelector('input[type="radio"]');
+                  radio.checked = false;
+              });
+              
+              // Hide all content sections
+              document.querySelectorAll('.option-content').forEach(content => {
+                  content.classList.remove('active');
+              });
+              
+              // Add active class to clicked option
+              this.classList.add('active');
+              
+              // Check the radio button in the clicked option
+              this.querySelector('input[type="radio"]').checked = true;
+              
+              // Show the corresponding content
+              document.getElementById(contentId).classList.add('active');
+          });
+      });
+      
+      // Add to cart button
+      const generateLink = document.getElementById('generateLink');
+  
+  generateLink.addEventListener('click', function (e) {
+    const selectedFlavor = document.querySelector('input[name="flavor"]:checked')?.id;
+    const selectedSubscription = document.querySelector('input[name="subscription"]:checked')?.id;
+  
+    if (selectedFlavor && selectedSubscription) {
+      const url = `https://Alcami/cart?flavor=${encodeURIComponent(selectedFlavor)}&subscription=${encodeURIComponent(selectedSubscription)}`;
+      
+      // Set the link's href dynamically so it redirects when clicked
+      generateLink.href = url;
+    } else {
+      e.preventDefault(); // Stop redirection if inputs are not selected
+      alert("Please select both a flavor and a subscription.");
+    }
+  });
 
 // Handle escape key press
 document.addEventListener('keydown', function (event) {

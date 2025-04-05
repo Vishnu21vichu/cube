@@ -11,6 +11,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -219,6 +220,250 @@
             </div>
         </div>
     </section>
+    <section class="elementcontainer">
+        <div class="product-display">
+            <div class="product-images">
+                <div class="main-image">
+                    <img src="assets/product1.png" alt="Alcami Elements Product">
+                    <div class="carousel-controls">
+                        <div class="arrow-btn prev" style="transform: scale(-1,-1);">
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="carousel-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                        <div class="arrow-btn next">
+                            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail.png" alt="Product thumbnail 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail2.png" alt="Product thumbnail 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail3.png" alt="Product thumbnail 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail4.png" alt="Product thumbnail 4">
+                    </div>
+                </div>
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail5.png" alt="Product thumbnail 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail6.png" alt="Product thumbnail 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail7.png" alt="Product thumbnail 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="assets/thumbnail8.png" alt="Product thumbnail 4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1 class="product-title">Alcami Elements</h1>
+                <div class="ratings">
+                    <div class="stars">★ ★ ★ ★ ★</div>
+                    <div class="reviews">4.7 (999+ reviews)</div>
+                </div>
+                <p class="product-description">
+                    Discover the ancient wisdom supported by modern science, all within the synergy
+                    of Alcami Elements. Designed for those who aspire to elevate every facet of life
+                    with awareness and intention.
+                </p>
+
+                <!-- Flavor Section -->
+                <div class="flavor-section">
+                    <h3>Choose a flavor</h3>
+                    <div class="flavor-options">
+                        <div class="flavor-option">
+                            <label for="original">
+                                <input type="radio" id="original" name="flavor" checked>
+                                <span>Original</span>
+                            </label>
+                            <img src="assets/flavour.png" alt="Original flavor">
+                            <div class="best-seller-badge">Best-Seller</div>
+                        </div>
+                        <div class="flavor-option">
+                            <label for="matcha">
+                                <input type="radio" id="matcha" name="flavor">
+                                <span>Matcha</span>
+                            </label>
+                            <img src="assets/flavour2.png" alt="Matcha flavor">
+                        </div>
+                        <div class="flavor-option">
+                            <label for="cacao">
+                                <input type="radio" id="cacao" name="flavor">
+                                <span>Cacao</span>
+                            </label>
+                            <img src="assets/flavour3.png" alt="Cacao flavor">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subscription Options -->
+                <div class="subscription-options">
+                    <div class="option-header">
+                        <div>Most Popular</div>
+                    </div>
+                    <div class="subscription-type active" id="single-kit-option">
+                        <input type="radio" id="single-kit" name="subscription" checked>
+                        <div class="type-option">
+                            <div class="radio-custom"></div>
+                            <div style="font-size: 24px;">Single Kit Subscription</div>
+                        </div>
+                        <div class="price-display">
+                            <div class="current-price">$37 USD</div>
+                            <div class="original-price">$46</div>
+                        </div>
+                    </div>
+
+                    <div class="option-content single-kit-content active" id="single-kit-content">
+                        <div>What's Included:</div>
+                        <div class="included-items">
+                            <div class="included-box" style="flex: 0.4; text-align: center;">
+                                <div style="text-align: start;">Every 30 Days</div>
+                                <img src="assets/flavour.png" alt="Monthly package" style="width: 70%; height: auto;">
+                            </div>
+                            <div class="included-box">
+                                <div>One Time (Free)</div>
+                                <div class="subscription-images">
+                                    <img src="assets/product-1.png" alt="Gold bottle">
+                                    <div>+</div>
+                                    <img src="assets/product-2.png" alt="Black jar">
+                                    <div>+</div>
+                                    <img src="assets/product-3.png" alt="Gold spoon">
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="features-list">
+                            <li>30 Servings Shipped Monthly</li>
+                            <li><b>Free</b> Golden Kit Gold Bottle + Spoon ($28 Value)</li>
+                            <li><b>Free</b> 60 Days Supply Of Alcami Shilajit ($78 Value)</li>
+                            <li></b>50% OFF</b> Shipping (Over $7-$10 in Savings)</li>
+                            <li>Pause Or Cancel Anytime After 3 Months Minimum</li>
+                            <li>90 Day Money Back Guarantee*</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subscription-options">
+                    <!-- Double Kit Subscription -->
+                    <div class="subscription-type" id="double-kit-option">
+                        <input type="radio" id="double-kit" name="subscription">
+                        <div class="type-option">
+                            <div class="radio-custom"></div>
+                            <div>Double Kit Subscription</div>
+                        </div>
+                        <div class="price-display">
+                            <div class="current-price">$68 USD</div>
+                            <div class="original-price">$83</div>
+                        </div>
+                    </div>
+
+                    <div class="option-content double-kit-content" id="double-kit-content">
+                        <div>What's included:</div>
+                        <div class="included-items">
+                            <div class="included-box" style="flex: 0.4; text-align: center;">
+                                <div style="text-align: start;">Every 30 Days</div>
+                                <img src="assets/flavour.png" alt="Monthly package" style="width: 50%; height: auto;">
+                                <img src="assets/flavour.png" alt="Monthly package" style="width: 50%; height: auto;">
+                            </div>
+                            <div class="included-box">
+                                <div>One Time (Free)</div>
+                                <div class="subscription-images">
+                                    <img src="assets/product-1.png" alt="Gold bottle">
+                                    <div>+</div>
+                                    <img src="assets/product-2.png" alt="Black jar">
+                                    <div>+</div>
+                                    <img src="assets/product-3.png" alt="Gold spoon">
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="features-list">
+                            <li>60 Servings Shipped Monthly</li>
+                            <li>Free Golden Kit Gold Bottle + Spoon ($28 Value)</li>
+                            <li>Free 90 Days Supply Of Alcami Shilajit ($98 Value)</li>
+                            <li>FREE Shipping (Over $10-$15 in Savings)</li>
+                            <li>Pause Or Cancel Anytime After 3 Months Minimum</li>
+                            <li>90 Day Money Back Guarantee*</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subscription-options" style="margin-bottom: 25px;">
+                    <!-- Try Once Option -->
+                    <div class="subscription-type" id="try-once-option">
+                        <input type="radio" id="try-once" name="subscription">
+                        <div class="type-option">
+                            <div class="radio-custom"></div>
+                            <div>Try Once</div>
+                        </div>
+                        <div class="price-display">
+                            <div class="current-price">$46 USD</div>
+                        </div>
+                    </div>
+
+                    <div class="option-content try-once-content" id="try-once-content">
+                        <div>What's included:</div>
+                        <div class="included-items">
+                            <div class="included-box" style="flex: 0.4; text-align: center;">
+                                <div style="text-align: start;">One Time</div>
+                                <img src="assets/flavour.png" alt="Package" style="width: 70%; height: auto;">
+                            </div>
+                            <div class="included-box">
+                                <div>One Time (Free)</div>
+                                <div class="subscription-images">
+                                    <img src="assets/product-3.png" alt="Gold spoon">
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="features-list">
+                            <li>30 Servings (One Time Purchase)</li>
+                            <li>Free Golden Spoon ($12 Value)</li>
+                            <li>Standard Shipping</li>
+                            <li>90 Day Money Back Guarantee*</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="#" class="add-to-cart-link" id="generateLink">
+                    Add to Cart
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div class="certifications-container">
         <div class="certification-item">
            <img src="assets/gmd-icon.png">
@@ -252,7 +497,7 @@
     </div>
     <section class="shilajit">
         <div class="product-image-container">
-            <img class="product-image" src="assets/product-4.png" alt="Himalayan Shilajit Product">
+            <img class="product-img" src="assets/product-4.png" alt="Himalayan Shilajit Product">
         </div>
         
         <div class="content-section">
@@ -418,6 +663,117 @@
             </div>
         </div>
     </div>
+    <section class="comparison-section">
+        <div class="comparison-container">
+            <h2 class="comparison-title">Why Alcami is the #1 Choice for your Productivity and Performance</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="benefits-header">BENEFITS</th>
+                        <th class="product-header alcami-header" style="border-bottom: 2px dotted black;">
+                            <div class="product-image" style="height: 160px;">
+                                <img src="assets/th1.png" alt="ALCAMI" />
+                            </div>
+                        </th>
+                        <th class="product-header">
+                            <div class="product-image" style="height: 145px; margin-top: 15px;">
+                                <img src="assets/th2.png" alt="MIDWTR" />
+                            </div>
+                        </th>
+                        <th class="product-header">
+                            <div class="product-image" style="height: 145px; margin-top: 15px;">
+                                <img src="assets/th3.png" alt="RYZE" />
+                            </div>
+                        </th>
+                        <th class="product-header">
+                            <div class="product-image" style="height: 145px; margin-top: 15px;">
+                                <img src="assets/th4.png" alt="EVERYDAY DOSE" />
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Potency Concentration</td>
+                        <td class="alcami-cell" style="border-bottom: 2px dotted black;">10x</td>
+                        <td>1x</td>
+                        <td>1x</td>
+                        <td>10x</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Extracts Concentrates</td>
+                        <td class="alcami-cell" style="border-bottom: 2px dotted black;"><span
+                                class="checkmark green"><i class="fas fa-check"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="checkmark"><i class="fas fa-check"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Effects You Can Feel</td>
+                        <td class="alcami-cell" style="border-bottom: 2px dotted black;"><span
+                                class="checkmark green"><i class="fas fa-check"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name"># of Beneficial Ingredients</td>
+                        <td class="alcami-cell" style="border-bottom: 2px dotted black;">9</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Incredible Taste</td>
+                        <td class="alcami-cell" style="border-bottom: 2px dotted black;"><span
+                                class="checkmark green"><i class="fas fa-check"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">No Caffeine</td>
+                        <td class="alcami-cell" style="border-bottom: 2px dotted black;"><span
+                                class="checkmark green"><i class="fas fa-check"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">No Starch or Myceliated Oats</td>
+                        <td class="alcami-cell" style="border-bottom: 2px dotted black;"><span
+                                class="checkmark green"><i class="fas fa-check"></i></span></td>
+                        <td><span class="checkmark"><i class="fas fa-check"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">100% Fruiting Body Mushroom</td>
+                        <td class="alcami-cell"
+                            style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom: 2px dotted black;">
+                            <span class="checkmark green"><i class="fas fa-check"></i></span>
+                        </td>
+                        <td><span class="checkmark"><i class="fas fa-check"></i></span></td>
+                        <td><span class="cross"><i class="fas fa-xmark"></i></span></td>
+                        <td><span class="checkmark"><i class="fas fa-check"></i></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="cta-container">
+                <a href="#" class="cta-button">
+                    Try it Risk-Free
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
 <section class="founder-section">
     <div class="play-button-yellow">
         <i></i>
